@@ -6,22 +6,23 @@ import { FormAsset } from '../form/form';
 export function ListaAsset(props) {
     const classes = useStyles();
     const [nuevo, setNuevo] = useState(false);
-    const [listaUsuario, setListaUsuario] = useState([
+    const [listaEmpleado, setListaEmpleado] = useState([
         {
             nombre:'Jackeline Maldonado',
-            email:'Jackeline.maldonado@gmail.com',
-            fecha:'28/08/2000'
+            dpi:'3042392400114',
+            hijos:'0',
+            salario: '3500'
         }
     ]);
 
-    const nuevoUsuario = () =>{
+    const nuevoEmpleado = () =>{
         setNuevo(true);
     }
 
-    const guardarUsuario = (data) => {
-        let d = listaUsuario;
+    const guardarEmpleado = (data) => {
+        let d = listaEmpleado;
         d.push(data);
-        setListaUsuario(d);
+        setListaEmpleado(d);
         setNuevo(false);
     }
 
@@ -30,25 +31,27 @@ export function ListaAsset(props) {
             <TituloLista> EMPLEADOS </TituloLista>
             {
                 nuevo
-                    ? <FormAsset guardarUsuario={guardarUsuario.bind(this)} />
+                    ? <FormAsset guardarEmpleado={guardarEmpleado.bind(this)} />
                     : <div>
                         <button
-                            onClick={nuevoUsuario.bind(this)}
+                            onClick={nuevoEmpleado.bind(this)}
                             type='button'
                             className={classes.buttonLogin} >NUEVO</button>
                         <CuadroLista>
                             <ColumnaListaBase>
                                 <ColumnaLista> Nombre </ColumnaLista>
-                                <ColumnaLista> Email </ColumnaLista>
-                                <ColumnaLista> Fecha Nacimiento </ColumnaLista>
+                                <ColumnaLista> Dpi </ColumnaLista>
+                                <ColumnaLista> Hijos </ColumnaLista>
+                                <ColumnaLista> Salario Base </ColumnaLista>
                             </ColumnaListaBase>
                             {
-                                listaUsuario.map((item, idx) => {
+                                listaEmpleado.map((item, idx) => {
                                     return(
                                         <FilaListaBase key={idx}>
                                             <FilaLista> {item.nombre} </FilaLista>
-                                            <FilaLista> {item.email} </FilaLista>
-                                            <FilaLista> {item.fecha} </FilaLista>
+                                            <FilaLista> {item.dpi} </FilaLista>
+                                            <FilaLista> {item.hijos} </FilaLista>
+                                            <FilaLista> {item.salario} </FilaLista>
                                         </FilaListaBase>
                                     )
 

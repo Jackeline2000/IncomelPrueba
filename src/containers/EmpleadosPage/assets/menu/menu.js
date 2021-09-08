@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import {
-    ColumnaLista,
-    ColumnaListaBase,
-    FilaLista,
-    FilaListaBase,
     MenuBase,
     MenuBaseLi,
-    TituloLista,
     useStyles
 } from './style';
 
 export function MenuAsset(props) {
     const classes = useStyles();
-    const [nuevo, setNuevo] = useState(false);
-
+    
     const callUsuarios = () =>{
         props.callMenu('/usuarios');
     }

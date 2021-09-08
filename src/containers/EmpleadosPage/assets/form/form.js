@@ -3,18 +3,21 @@ import {useStyles} from './style';
 
 export function FormAsset(props) {
     const [nombre, setNombre] = useState("");
-    const [email, setEmail] = useState("");
-    const [fecha, setFecha] = useState("");
+    const [dpi, setDpi] = useState("");
+    const [salario, setSalario] = useState("");
+    const [hijos, setHijos] = useState("");
+
 
     const classes = useStyles();
 
-    const UsuarioNuevo = () => {
+    const EmpleadoNuevo = () => {
         const jsonData = {
             "nombre": nombre,
-            "email":email,
-            "fecha":fecha
+            "dpi":dpi,
+            "salario":salario,
+            "hijos":hijos
         };
-       props.guardarUsuario(jsonData);
+       props.guardarEmpleado(jsonData);
     }
 
     return (
@@ -25,19 +28,21 @@ export function FormAsset(props) {
                     className={classes.input}
                     type="text" placeholder="Nombre" />
                 <input
-                    onChange={(e) => { setEmail(e.target.value) }}
+                    onChange={(e) => { setDpi(e.target.value) }}
                     className={classes.input}
-                    type="text"
-                    placeholder="Email" />
+                    type="text" placeholder="DPI" />
                 <input
-                    onChange={(e) => { setFecha(e.target.value) }}
+                    onChange={(e) => { setSalario(e.target.value) }}
                     className={classes.input}
-                    type="date"
-                    placeholder="Fecha de nacimiento" />
+                    type="text" placeholder="Salario Base" />
+                <input
+                    onChange={(e) => { setHijos(e.target.value) }}
+                    className={classes.input}
+                    type="text" placeholder="Hijos" />
                 <button
-                    onClick={UsuarioNuevo.bind(this)}
+                    onClick={EmpleadoNuevo.bind(this)}
                     type='button'
-                    className={classes.buttonLogin} >Crear Usuario</button>
+                    className={classes.buttonLogin} >Crear Empleado</button>
             </form>
         </>
     );

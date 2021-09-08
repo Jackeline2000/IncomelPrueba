@@ -25,7 +25,7 @@ export const ColumnaListaBase = styled.ul`
 
 export const ColumnaLista = styled.li`
       float: left;
-      width: 33.33%;
+      width: 25%;
       height: 40px;
       background-color: #6a6060;
       color: #fff;
@@ -44,7 +44,7 @@ export const FilaListaBase = styled.ul`
 
 export const FilaLista = styled.li`
       float: left;
-      width: 33.33%;
+      width: 25%;
       height: 40px;
       background-color: #fcfcfc;
       color: #000;
